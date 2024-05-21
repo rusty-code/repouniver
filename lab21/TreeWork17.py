@@ -1,3 +1,7 @@
+# Дано бинарное дерево и его корень
+# Необходимо вывести второе минимальное значение 
+
+
 
 invalid_txt = "Некорректный ввод. Повторите попытку..."
 def valid_inpt(txt,  data_type = 'float'): # Verefed input
@@ -158,13 +162,13 @@ class BinaryTree:
 
 
 def main():
-    tst = [ 0, 2, 1, 14, 2, 5, 6, 4, 3]
+    tst = [ 0, 2, 100, 14, 2, 5, 6, 4, 3]
     tree = BinaryTree()
     for it in tst:
         tree.append(it)
 
     
-    print(sorted(tree.end_bypass())[1])
+    print("Второе минимальное заначение: ", sorted(tree.end_bypass())[1])
    
 
 

@@ -1,7 +1,3 @@
-# Дано бинарное дерево и его корень
-# Необходимо вывести содержимое дерево, используя концевой обход
-
-
 class Node:
 
     def __init__(self, data=None, left=None, right=None) -> None:
@@ -102,29 +98,19 @@ class BinaryTree:
             self.end_bypass(node=node.get_left())
             self.end_bypass(node=node.get_right())
             print(node)
+    
+    def format(self, node : Node):
+        if node is None: 
+            return ''
+
+        if node.get_left() is None and node.get_right() is None:
+            return f'{node.get_data()}'
+
+        if not node.get_left is None and node.get_right() is None:
+            return f"({self.format(node.get_left())}){node.get_data()}"
+
+        if not node.get_right() is None and node.get_left() is None:
+            return f"{node.get_data()}({self.format(node.get_right())})"
         
-
-def main():
-    tst = [ 0, 2, 1, 14, 2, 5, 6, 4, 3]
-    tree = BinaryTree()
-    for it in tst:
-        tree.append(it)
-
-   
-
-
-def test():
-    tree = BinaryTree()
-
-    for it in [2, 4, 1, 3, 11, 12, -1, 0]:
-        tree.append(it)
-
-    # print(tree._head.get_data())
-    # print(tree._head.get_left().get_data())
-    # print(tree._head.get_right().get_data())
-    tree.end_bypass(tree._head)
+        return f"({self.format(node.get_left())}){node.get_data()}({self.format(node.get_right())})"
     
-if __name__ == "__main__": 
-    
-    # main()
-    test()

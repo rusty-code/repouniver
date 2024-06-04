@@ -1,6 +1,8 @@
 
 import os
 
+# (WARNING) Flase -> access to main directory '/'
+SAFEMODE = True
 
 class FileInstance:
     """File instance interface"""
@@ -10,6 +12,13 @@ class FileInstance:
             path : str, 
         ):
 
+        global SAFEMODE
+        if SAFEMODE:
+            if path == '/':
+                print('(ERROR) acces to main directory')
+                exit()
+
+        
         self._PATH = path
 
         self._FILE_DATA = [] # ['strings']
@@ -75,6 +84,12 @@ class FilesBuffer:
             self, 
             to : str, # path to open dir
         ):
+
+        global SAFEMODE
+        if SAFEMODE:
+            if to == '/':
+                print('(ERROR) acces to main directory')
+                exit()
 
         self._DIR = to
 

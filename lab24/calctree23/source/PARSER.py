@@ -124,5 +124,6 @@ def parser(expr):
     
 
 if __name__ == "__main__":
-    parser('(1+2)*3') # (1+2) * 3 = 9 
-    parser('123*+') # 1+2 * 3 = 7
+    # parser('(1+2)*3') # (1+2) * 3 = 9 
+    print(parser('123*+')) # 1+2 * 3 = 7
+    
